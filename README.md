@@ -2,12 +2,12 @@
 
 Access undocumented Native API primitives and type definitions.
 
-This crate uses [`windows-sys`][windows-sys] underneath the hood rather than the heavier, more "fully-featured" [`windows-rs`][windows-rs-crate] crate.
-
 ## Description
 
+This crate builds on top of the [`windows-sys`][windows-sys] crate.
+
 - Access to undocumented Native API primitives and type definitions
-- Uses the [`windows-sys`][windows-sys] crate for `no-std` environments and faster compilation
+- Fully compatible with `no-std` environments
 - Feature gates allow you to only use what you need
 - Headers sourced from Process Hacker's NT headers
 
@@ -30,5 +30,4 @@ The **native-sys** crate is a fork of the [`windows-native`][windows-native] cra
 <!-- Links -->
 
 [windows-native]: https://crates.io/crates/windows-native
-[windows-rs]: https://crates.io/crates/windows
 [windows-sys]: https://crates.io/crates/windows-sys
