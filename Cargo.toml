@@ -15,7 +15,7 @@ path = "src/lib.rs"
 crate-type = ["lib"]
 
 [features]
-default = []
+default = ["ntzwapi"]
 ntbcd = []
 ntdbg = []
 ntdef = []
@@ -45,7 +45,26 @@ nttmapi = []
 nttp = []
 ntwow64 = []
 ntxcapi = []
-ntzwapi = []
+ntzwapi = [
+    "ntdbg",
+    "ntdef",
+    "ntexapi",
+    "ntioapi",
+    "ntkeapi",
+    "ntldr",
+    "ntlpcapi",
+    "ntmisc",
+    "ntmmapi",
+    "ntobapi",
+    "ntpebteb",
+    "ntpnpapi",
+    "ntpsapi",
+    "ntregapi",
+    "ntrtl",
+    "ntseapi",
+    "ntsxs",
+    "winntdef",
+]
 subprocesstag = []
 winntdef = []
 winsta = []
