@@ -1,0 +1,35 @@
+# Cargo build artifacts
+/target
+/Cargo.lock
+
+# Environment variables
+.env*
+!.env.dev
+
+# Internal specifications
+/.spec
+# Internal files and resources, such as test DLLs, which are quite large
+# Test DLLs, such as `ntdll.dll` or `advapi32.dll` can be found in "C:\Windows\System32"
+/.internal
+
+# Editor / IDE
+/.vscode
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/settings.linux.json
+!/.vscode/settings.windows.json
+
+/libs/scanner
+/dist
+
+**/parser.py
+
+tools/
+scripts/
+
+
+# Added by cargo
+#
+# already existing elements were commented out
+
+#/target

@@ -1,0 +1,81 @@
+[package]
+name = "native-sys"
+version = "0.1.0"
+edition = "2021"
+description = "FFI Bindings to the Windows Native API compatible with no-std environments."
+license-file = "LICENSE"
+authors = ["ellacrity"]
+readme = "README.md"
+categories = ["external-ffi-bindings", "os::windows-apis"]
+repository = "https://github.com/ellacrity/native-sys"
+keywords = ["ntapi", "windows", "ffi"]
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["lib"]
+
+[features]
+default = []
+ntbcd = []
+ntdbg = []
+ntdef = []
+ntexapi = []
+ntgdi = []
+ntimage = []
+ntioapi = []
+ntkeapi = []
+ntldr = []
+ntlpcapi = []
+ntmisc = []
+ntmmapi = []
+ntnls = []
+ntobapi = []
+ntpebteb = []
+ntpfapi = []
+ntpnpapi = []
+ntpoapi = []
+ntpsapi = []
+ntregapi = []
+ntrtl = []
+ntsam = []
+ntseapi = []
+ntsmss = []
+ntsxs = []
+nttmapi = []
+nttp = []
+ntwow64 = []
+ntxcapi = []
+ntzwapi = []
+subprocesstag = []
+winntdef = []
+winsta = []
+
+[dependencies.windows-sys]
+version = "0.52.0"
+features = [
+    "Win32_Foundation",
+    "Win32_Devices_DeviceAndDriverInstallation",
+    "Win32_Security",
+    "Win32_Security_Authentication_Identity",
+    "Win32_Storage_FileSystem",
+    "Win32_System_Diagnostics_Etw",
+    "Win32_System_ApplicationInstallationAndServicing",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_IO",
+    "Win32_System_JobObjects",
+    "Win32_System_Kernel",
+    "Win32_System_Memory",
+    "Win32_System_Performance_HardwareCounterProfiling",
+    "Win32_System_Power",
+    "Win32_System_SystemInformation",
+    "Win32_System_SystemServices",
+    "Win32_System_Threading",
+    "Win32_System_WindowsProgramming",
+    "Wdk_Foundation",
+    "Wdk_Storage_FileSystem",
+    "Wdk_System_SystemInformation",
+    "Wdk_System_SystemServices",
+    "Wdk_System_Threading",
+    "Wdk_System_Registry",
+    "Win32_System_PasswordManagement",
+]

@@ -1,0 +1,68 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  check:lint:
+    desc: Runs 'clippy' to lint the project and check for errors
+    cmds:
+      - cmd: cargo clippy --workspace --release --quiet --all-features -- -D warnings
+
+  cargo:clean:
+    desc: Cleans project build artifacts
+    cmd: cargo clean --verbose
+
+  cargo:test:
+    desc: Run test suite for the Rust workspace
+    cmd: cargo test
+
+  cargo:test:debug:
+    desc: Run test suite for the Rust workspace in debug mode (parallelism disabled)
+    cmd: cargo test -- --nocapture --test-threads=1
+
+  cargo:test:release:
+    desc: Run test suite for the Rust workspace with optimizations
+    cmd: cargo test --release
+
+  cargo:build:
+    desc: Build the Rust workspace
+    cmd: cargo build --verbose
+
+  cargo:build:release:
+    desc: Build the Rust workspace with optimizations
+    cmd: cargo build --verbose --release
+
+  cargo:build:all:
+    desc: Build the Rust workspace in both 'debug' and 'release' mode
+    cmds:
+      - task: cargo:build
+      - task: cargo:build:release
+
+  cargo:rebuild:
+    desc: Clean and rebuild the Rust workspace
+    cmds:
+      - task: cargo:clean
+      - task: cargo:build
+      - task: cargo:build:release
+
+  cargo:rebuild:release:
+    desc: Clean and rebuild the Rust workspace with optimizations
+    cmds:
+      - task: cargo:clean
+      - task: cargo:build
+      - task: cargo:build:release
+
+  cargo:rebuild:all:
+    desc: Clean and rebuild the Rust workspace in both 'debug' and 'release' mode
+    cmds:
+      - task: cargo:clean
+      - task: cargo:build
+      - task: cargo:build:release
