@@ -209,8 +209,7 @@ pub struct LDR_DATA_TABLE_ENTRY_2 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct LDR_DATA_TABLE_ENTRY_2_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -706,8 +705,7 @@ pub struct PS_SYSTEM_DLL_INIT_BLOCK_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PS_SYSTEM_DLL_INIT_BLOCK_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

@@ -15,7 +15,7 @@ impl<Storage> BitfieldUnit<Storage> {
 
 impl<Storage: AsRef<[u8]> + AsMut<[u8]>> BitfieldUnit<Storage> {
     #[inline]
-    pub fn get_bit(&self, index: usize) -> bool {
+    pub fn get_bit_at_index(&self, index: usize) -> bool {
         debug_assert!(index / 8 < self.storage.as_ref().len());
         let byte_index = index / 8;
         let byte = self.storage.as_ref()[byte_index];
@@ -32,7 +32,7 @@ impl<Storage: AsRef<[u8]> + AsMut<[u8]>> BitfieldUnit<Storage> {
     ///
     /// Panics if the index is .
     #[inline]
-    pub fn set_bit(&mut self, index: usize, value: bool) {
+    pub fn set_bit_at_index(&mut self, index: usize, value: bool) {
         debug_assert!(index / 8 < self.storage.as_ref().len());
         let byte_index = index / 8;
         let byte = self.storage.as_mut()[byte_index].borrow_mut();
@@ -57,7 +57,7 @@ impl<Storage: AsRef<[u8]> + AsMut<[u8]>> BitfieldUnit<Storage> {
 
         let mut val = 0;
         for index in 0..(bit_width as usize) {
-            if self.get_bit(index + bit_offset) {
+            if self.get_bit_at_index(index + bit_offset) {
                 let base_index = if cfg!(target_endian = "big") {
                     bit_width as usize - 1 - index
                 } else {
@@ -88,7 +88,7 @@ impl<Storage: AsRef<[u8]> + AsMut<[u8]>> BitfieldUnit<Storage> {
                 index
             };
 
-            self.set_bit(base_index + bit_offset, val_bit_is_set);
+            self.set_bit_at_index(base_index + bit_offset, val_bit_is_set);
         }
     }
 }

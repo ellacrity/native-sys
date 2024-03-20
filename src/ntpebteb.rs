@@ -165,114 +165,82 @@ pub struct PEB_1_1 {
 impl PEB_1_1 {
     #[inline]
     pub fn ImageUsesLargePages(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
+        self._bitfield_1.get(0usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_ImageUsesLargePages(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsProtectedProcess(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
+        self._bitfield_1.get(1usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsProtectedProcess(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(1usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsImageDynamicallyRelocated(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u8) }
+        self._bitfield_1.get(2usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsImageDynamicallyRelocated(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(2usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn SkipPatchingUser32Forwarders(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u8) }
+        self._bitfield_1.get(3usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_SkipPatchingUser32Forwarders(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(3usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(3usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsPackagedProcess(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u8) }
+        self._bitfield_1.get(4usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsPackagedProcess(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(4usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(4usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsAppContainer(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u8) }
+        self._bitfield_1.get(5usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsAppContainer(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(5usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(5usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsProtectedProcessLight(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(6usize, 1u8) as u8) }
+        self._bitfield_1.get(6usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsProtectedProcessLight(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(6usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(6usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn IsLongPathAwareProcess(&self) -> BOOLEAN {
-        unsafe { core::mem::transmute(self._bitfield_1.get(7usize, 1u8) as u8) }
+        self._bitfield_1.get(7usize, 1u8) as BOOLEAN
     }
 
     #[inline]
     pub fn set_IsLongPathAwareProcess(&mut self, val: BOOLEAN) {
-        unsafe {
-            let val: u8 = core::mem::transmute(val);
-
-            self._bitfield_1.set(7usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(7usize, 1u8, val as u64)
     }
 
     // FIXME: Pass in arguments using a pointer or by reference.
@@ -289,62 +257,14 @@ impl PEB_1_1 {
         IsLongPathAwareProcess: BOOLEAN,
     ) -> BitfieldUnit<[u8; 1]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 1]> = Default::default();
-
-        bitfield_unit.set(0usize, 1u8, {
-            let ImageUsesLargePages: u8 =
-                unsafe { core::mem::transmute(ImageUsesLargePages) };
-
-            ImageUsesLargePages as u64
-        });
-
-        bitfield_unit.set(1usize, 1u8, {
-            let IsProtectedProcess: u8 =
-                unsafe { core::mem::transmute(IsProtectedProcess) };
-
-            IsProtectedProcess as u64
-        });
-
-        bitfield_unit.set(2usize, 1u8, {
-            let IsImageDynamicallyRelocated: u8 =
-                unsafe { core::mem::transmute(IsImageDynamicallyRelocated) };
-
-            IsImageDynamicallyRelocated as u64
-        });
-
-        bitfield_unit.set(3usize, 1u8, {
-            let SkipPatchingUser32Forwarders: u8 =
-                unsafe { core::mem::transmute(SkipPatchingUser32Forwarders) };
-
-            SkipPatchingUser32Forwarders as u64
-        });
-
-        bitfield_unit.set(4usize, 1u8, {
-            let IsPackagedProcess: u8 =
-                unsafe { core::mem::transmute(IsPackagedProcess) };
-
-            IsPackagedProcess as u64
-        });
-
-        bitfield_unit.set(5usize, 1u8, {
-            let IsAppContainer: u8 = unsafe { core::mem::transmute(IsAppContainer) };
-
-            IsAppContainer as u64
-        });
-
-        bitfield_unit.set(6usize, 1u8, {
-            let IsProtectedProcessLight: u8 =
-                unsafe { core::mem::transmute(IsProtectedProcessLight) };
-
-            IsProtectedProcessLight as u64
-        });
-
-        bitfield_unit.set(7usize, 1u8, {
-            let IsLongPathAwareProcess: u8 =
-                unsafe { core::mem::transmute(IsLongPathAwareProcess) };
-
-            IsLongPathAwareProcess as u64
-        });
-
+        bitfield_unit.set(0usize, 1u8, ImageUsesLargePages as u64);
+        bitfield_unit.set(1usize, 1u8, IsProtectedProcess as u64);
+        bitfield_unit.set(2usize, 1u8, IsImageDynamicallyRelocated as u64);
+        bitfield_unit.set(3usize, 1u8, SkipPatchingUser32Forwarders as u64);
+        bitfield_unit.set(4usize, 1u8, IsPackagedProcess as u64);
+        bitfield_unit.set(5usize, 1u8, IsAppContainer as u64);
+        bitfield_unit.set(6usize, 1u8, IsProtectedProcessLight as u64);
+        bitfield_unit.set(7usize, 1u8, IsLongPathAwareProcess as u64);
         bitfield_unit
     }
 }
@@ -356,8 +276,7 @@ pub struct PEB_2 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB_2_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -469,15 +388,15 @@ impl PEB_2_1 {
         ReservedBits0: u32,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-        bitfield_unit.set(0usize, 1u8, ProcessInJob as u64);
-        bitfield_unit.set(1usize, 1u8, ProcessInitializing as u64);
-        bitfield_unit.set(2usize, 1u8, ProcessUsingVEH as u64);
-        bitfield_unit.set(3usize, 1u8, ProcessUsingVCH as u64);
-        bitfield_unit.set(4usize, 1u8, ProcessUsingFTH as u64);
-        bitfield_unit.set(5usize, 1u8, ProcessPreviouslyThrottled as u64);
-        bitfield_unit.set(6usize, 1u8, ProcessCurrentlyThrottled as u64);
-        bitfield_unit.set(7usize, 1u8, ProcessImagesHotPatched as u64);
-        bitfield_unit.set(8usize, 24u8, ReservedBits0 as u64);
+        bitfield_unit.set(0usize, 1u8, ProcessInJob.into());
+        bitfield_unit.set(1usize, 1u8, ProcessInitializing.into());
+        bitfield_unit.set(2usize, 1u8, ProcessUsingVEH.into());
+        bitfield_unit.set(3usize, 1u8, ProcessUsingVCH.into());
+        bitfield_unit.set(4usize, 1u8, ProcessUsingFTH.into());
+        bitfield_unit.set(5usize, 1u8, ProcessPreviouslyThrottled.into());
+        bitfield_unit.set(6usize, 1u8, ProcessCurrentlyThrottled.into());
+        bitfield_unit.set(7usize, 1u8, ProcessImagesHotPatched.into());
+        bitfield_unit.set(8usize, 24u8, ReservedBits0.into());
         bitfield_unit
     }
 }
@@ -504,8 +423,7 @@ pub struct PEB_5 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB_5_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -560,15 +478,10 @@ impl PEB_5_1 {
         SpareTracingBits: u32,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-
         bitfield_unit.set(0usize, 1u8, HeapTracingEnabled as u64);
-
         bitfield_unit.set(1usize, 1u8, CritSecTracingEnabled as u64);
-
         bitfield_unit.set(2usize, 1u8, LibLoaderTracingEnabled as u64);
-
         bitfield_unit.set(3usize, 29u8, SpareTracingBits as u64);
-
         bitfield_unit
     }
 }
@@ -580,8 +493,7 @@ pub struct PEB_6 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB_6_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -614,11 +526,8 @@ impl PEB_6_1 {
         Reserved: u32,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-
         bitfield_unit.set(0usize, 1u8, SixtySecondEnabled as u64);
-
         bitfield_unit.set(1usize, 31u8, Reserved as u64);
-
         bitfield_unit
     }
 }
@@ -799,8 +708,7 @@ pub struct TEB_3 {
     pub union_field: u16,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct TEB_3_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,

@@ -56,8 +56,7 @@ pub struct POWER_STATE {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_POWER_STATE_CONTEXT_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

@@ -98,18 +98,6 @@ pub struct PORT_MESSAGE_1_1 {
     pub TotalLength: i16,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE_1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_1_1 {{  }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_1 {{ union }}")
-    }
-}
-
 #[repr(C)]
 pub struct PORT_MESSAGE_2 {
     pub s2: UnionField<PORT_MESSAGE_2_1>,
@@ -123,29 +111,11 @@ pub struct PORT_MESSAGE_2_1 {
     pub DataInfoOffset: i16,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE_2_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_2_1 {{  }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_2 {{ union }}")
-    }
-}
-
 #[repr(C)]
 pub struct PORT_MESSAGE_3 {
     pub ClientId: UnionField<CLIENT_ID>,
     pub DoNotUseThisField: UnionField<f64>,
     pub union_field: [u64; 2],
-}
-
-impl core::fmt::Debug for PORT_MESSAGE_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_3 {{ union }}")
-    }
 }
 
 #[repr(C)]
@@ -155,32 +125,10 @@ pub struct PORT_MESSAGE_4 {
     pub union_field: u64,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE_4 {{ union }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(
-            f,
-            "PORT_MESSAGE {{ u1: {:?}, u2: {:?}, Anonymous1: {:?}, Anonymous2: {:?} }}",
-            self.u1, self.u2, self.Anonymous1, self.Anonymous2
-        )
-    }
-}
-
 #[repr(C)]
 pub struct PORT_DATA_ENTRY {
     pub Base: *mut core::ffi::c_void,
     pub Size: u32,
-}
-
-impl core::fmt::Debug for PORT_DATA_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_DATA_ENTRY {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -189,22 +137,10 @@ pub struct PORT_DATA_INFORMATION {
     pub DataEntries: [PORT_DATA_ENTRY; 1],
 }
 
-impl core::fmt::Debug for PORT_DATA_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_DATA_INFORMATION {{ DataEntries: {:?} }}", self.DataEntries)
-    }
-}
-
 #[repr(C)]
 pub struct LPC_CLIENT_DIED_MSG {
     pub PortMsg: PORT_MESSAGE,
     pub CreateTime: i64,
-}
-
-impl core::fmt::Debug for LPC_CLIENT_DIED_MSG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "LPC_CLIENT_DIED_MSG {{ PortMsg: {:?} }}", self.PortMsg)
-    }
 }
 
 #[repr(C)]
@@ -217,23 +153,11 @@ pub struct PORT_VIEW {
     pub ViewRemoteBase: *mut core::ffi::c_void,
 }
 
-impl core::fmt::Debug for PORT_VIEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_VIEW {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct REMOTE_PORT_VIEW {
     pub Length: u32,
     pub ViewSize: usize,
     pub ViewBase: *mut core::ffi::c_void,
-}
-
-impl core::fmt::Debug for REMOTE_PORT_VIEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "REMOTE_PORT_VIEW {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -258,18 +182,6 @@ pub struct PORT_MESSAGE64_1_1 {
     pub TotalLength: i16,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE64_1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_1_1 {{  }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE64_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_1 {{ union }}")
-    }
-}
-
 #[repr(C)]
 pub struct PORT_MESSAGE64_2 {
     pub s2: UnionField<PORT_MESSAGE64_2_1>,
@@ -283,29 +195,11 @@ pub struct PORT_MESSAGE64_2_1 {
     pub DataInfoOffset: i16,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE64_2_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_2_1 {{  }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE64_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_2 {{ union }}")
-    }
-}
-
 #[repr(C)]
 pub struct PORT_MESSAGE64_3 {
     pub ClientId: UnionField<CLIENT_ID>,
     pub DoNotUseThisField: UnionField<f64>,
     pub union_field: [u64; 2],
-}
-
-impl core::fmt::Debug for PORT_MESSAGE64_3 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_3 {{ union }}")
-    }
 }
 
 #[repr(C)]
@@ -315,32 +209,10 @@ pub struct PORT_MESSAGE64_4 {
     pub union_field: u64,
 }
 
-impl core::fmt::Debug for PORT_MESSAGE64_4 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_MESSAGE64_4 {{ union }}")
-    }
-}
-
-impl core::fmt::Debug for PORT_MESSAGE64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(
-            f,
-            "PORT_MESSAGE64 {{ u1: {:?}, u2: {:?}, Anonymous1: {:?}, Anonymous2: {:?} }}",
-            self.u1, self.u2, self.Anonymous1, self.Anonymous2
-        )
-    }
-}
-
 #[repr(C)]
 pub struct LPC_CLIENT_DIED_MSG64 {
     pub PortMsg: PORT_MESSAGE64,
     pub CreateTime: i64,
-}
-
-impl core::fmt::Debug for LPC_CLIENT_DIED_MSG64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "LPC_CLIENT_DIED_MSG64 {{ PortMsg: {:?} }}", self.PortMsg)
-    }
 }
 
 #[repr(C)]
@@ -353,23 +225,11 @@ pub struct PORT_VIEW64 {
     pub ViewRemoteBase: u64,
 }
 
-impl core::fmt::Debug for PORT_VIEW64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "PORT_VIEW64 {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct REMOTE_PORT_VIEW64 {
     pub Length: u32,
     pub ViewSize: u64,
     pub ViewBase: u64,
-}
-
-impl core::fmt::Debug for REMOTE_PORT_VIEW64 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "REMOTE_PORT_VIEW64 {{  }}")
-    }
 }
 
 #[link(name = "ntdll.dll", kind = "raw-dylib", modifiers = "+verbatim")]
@@ -564,22 +424,10 @@ pub struct ALPC_PORT_ATTRIBUTES {
     pub Reserved: u32,
 }
 
-impl core::fmt::Debug for ALPC_PORT_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_PORT_ATTRIBUTES {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_MESSAGE_ATTRIBUTES {
     pub AllocatedAttributes: u32,
     pub ValidAttributes: u32,
-}
-
-impl core::fmt::Debug for ALPC_MESSAGE_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_MESSAGE_ATTRIBUTES {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -594,23 +442,10 @@ pub struct ALPC_COMPLETION_LIST_STATE_1 {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct ALPC_COMPLETION_LIST_STATE_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
-}
-
-impl core::fmt::Debug for ALPC_COMPLETION_LIST_STATE_1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(
-            f,
-            "ALPC_COMPLETION_LIST_STATE_1_1 {{ Head : {:?}, Tail : {:?}, ActiveThreadCount : {:?} }}",
-            self.Head(),
-            self.Tail(),
-            self.ActiveThreadCount()
-        )
-    }
 }
 
 impl ALPC_COMPLETION_LIST_STATE_1_1 {
@@ -662,20 +497,7 @@ impl ALPC_COMPLETION_LIST_STATE_1_1 {
     }
 }
 
-impl core::fmt::Debug for ALPC_COMPLETION_LIST_STATE_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_COMPLETION_LIST_STATE_1 {{ union }}")
-    }
-}
-
-impl core::fmt::Debug for ALPC_COMPLETION_LIST_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_COMPLETION_LIST_STATE {{ u1: {:?} }}", self.u1)
-    }
-}
-
-#[repr(C)]
-#[repr(align(128))]
+#[repr(C, align(128))]
 pub struct ALPC_COMPLETION_LIST_HEADER {
     pub StartMagic: u64,
     pub TotalSize: u32,
@@ -702,12 +524,6 @@ pub struct ALPC_COMPLETION_LIST_HEADER {
     pub EndMagic: u64,
 }
 
-impl core::fmt::Debug for ALPC_COMPLETION_LIST_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_COMPLETION_LIST_HEADER {{ State: {:?} }}", self.State)
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_CONTEXT_ATTR {
     pub PortContext: *mut core::ffi::c_void,
@@ -715,12 +531,6 @@ pub struct ALPC_CONTEXT_ATTR {
     pub Sequence: u32,
     pub MessageId: u32,
     pub CallbackId: u32,
-}
-
-impl core::fmt::Debug for ALPC_CONTEXT_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_CONTEXT_ATTR {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -736,12 +546,6 @@ pub struct ALPC_HANDLE_ATTR32 {
     pub ObjectType: u32,
     pub DesiredAccess: u32,
     pub GrantedAccess: u32,
-}
-
-impl core::fmt::Debug for ALPC_HANDLE_ATTR32 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_HANDLE_ATTR32 {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -761,23 +565,11 @@ pub struct ALPC_HANDLE_ATTR {
     pub GrantedAccess: u32,
 }
 
-impl core::fmt::Debug for ALPC_HANDLE_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_HANDLE_ATTR {{ HandleAttrArray: {:?} }}", self.HandleAttrArray)
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_SECURITY_ATTR {
     pub Flags: u32,
     pub QoS: *mut SECURITY_QUALITY_OF_SERVICE,
     pub ContextHandle: HANDLE,
-}
-
-impl core::fmt::Debug for ALPC_SECURITY_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SECURITY_ATTR {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -786,12 +578,6 @@ pub struct ALPC_DATA_VIEW_ATTR {
     pub SectionHandle: HANDLE,
     pub ViewBase: *mut core::ffi::c_void,
     pub ViewSize: usize,
-}
-
-impl core::fmt::Debug for ALPC_DATA_VIEW_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_DATA_VIEW_ATTR {{  }}")
-    }
 }
 
 #[repr(i32)]
@@ -819,22 +605,10 @@ pub struct ALPC_BASIC_INFORMATION {
     pub PortContext: *mut core::ffi::c_void,
 }
 
-impl core::fmt::Debug for ALPC_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_BASIC_INFORMATION {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_PORT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut core::ffi::c_void,
     pub CompletionPort: HANDLE,
-}
-
-impl core::fmt::Debug for ALPC_PORT_ASSOCIATE_COMPLETION_PORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_PORT_ASSOCIATE_COMPLETION_PORT {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -854,12 +628,6 @@ pub struct ALPC_SERVER_INFORMATION_1_1 {
     pub ThreadHandle: HANDLE,
 }
 
-impl core::fmt::Debug for ALPC_SERVER_INFORMATION_1_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SERVER_INFORMATION_1_1 {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_SERVER_INFORMATION_1_2 {
     pub ThreadBlocked: BOOLEAN,
@@ -867,34 +635,10 @@ pub struct ALPC_SERVER_INFORMATION_1_2 {
     pub ConnectionPortName: UNICODE_STRING,
 }
 
-impl core::fmt::Debug for ALPC_SERVER_INFORMATION_1_2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SERVER_INFORMATION_1_2 {{  }}")
-    }
-}
-
-impl core::fmt::Debug for ALPC_SERVER_INFORMATION_1 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SERVER_INFORMATION_1 {{ union }}")
-    }
-}
-
-impl core::fmt::Debug for ALPC_SERVER_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SERVER_INFORMATION {{ Anonymous1: {:?} }}", self.Anonymous1)
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_PORT_MESSAGE_ZONE_INFORMATION {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
-}
-
-impl core::fmt::Debug for ALPC_PORT_MESSAGE_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_PORT_MESSAGE_ZONE_INFORMATION {{  }}")
-    }
 }
 
 #[repr(C)]
@@ -905,34 +649,16 @@ pub struct ALPC_PORT_COMPLETION_LIST_INFORMATION {
     pub AttributeFlags: u32,
 }
 
-impl core::fmt::Debug for ALPC_PORT_COMPLETION_LIST_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_PORT_COMPLETION_LIST_INFORMATION {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_REGISTER_CALLBACK {
     pub CallbackObject: *mut core::ffi::c_void,
     pub CallbackContext: *mut core::ffi::c_void,
 }
 
-impl core::fmt::Debug for ALPC_REGISTER_CALLBACK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_REGISTER_CALLBACK {{  }}")
-    }
-}
-
 #[repr(C)]
 pub struct ALPC_SERVER_SESSION_INFORMATION {
     pub SessionId: u32,
     pub ProcessId: u32,
-}
-
-impl core::fmt::Debug for ALPC_SERVER_SESSION_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_SERVER_SESSION_INFORMATION {{  }}")
-    }
 }
 
 #[repr(i32)]
@@ -952,12 +678,6 @@ pub struct ALPC_MESSAGE_HANDLE_INFORMATION {
     pub Handle: u32,
     pub ObjectType: u32,
     pub GrantedAccess: u32,
-}
-
-impl core::fmt::Debug for ALPC_MESSAGE_HANDLE_INFORMATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "ALPC_MESSAGE_HANDLE_INFORMATION {{  }}")
-    }
 }
 
 #[link(name = "ntdll.dll", kind = "raw-dylib", modifiers = "+verbatim")]

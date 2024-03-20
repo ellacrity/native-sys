@@ -100,8 +100,7 @@ pub enum MEMORY_INFORMATION_CLASS {
     MaxMemoryInfoClass = 14,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct MEMORY_WORKING_SET_BLOCK {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -110,72 +109,52 @@ pub struct MEMORY_WORKING_SET_BLOCK {
 impl MEMORY_WORKING_SET_BLOCK {
     #[inline]
     pub fn Protection(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(0usize, 5u8)) }
+        self._bitfield_1.get(0usize, 5u8) as usize
     }
 
     #[inline]
     pub fn set_Protection(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 5u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 5u8, val as u64)
     }
 
     #[inline]
     pub fn ShareCount(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(5usize, 3u8)) }
+        self._bitfield_1.get(5usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_ShareCount(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(5usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(5usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn Shared(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(8usize, 1u8)) }
+        self._bitfield_1.get(8usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Shared(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(8usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(8usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Node(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(9usize, 3u8)) }
+        self._bitfield_1.get(9usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_Node(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(9usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(9usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn VirtualPage(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(12usize, 52u8)) }
+        self._bitfield_1.get(12usize, 52u8) as usize
     }
 
     #[inline]
     pub fn set_VirtualPage(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(12usize, 52u8, val as u64)
-        }
+        self._bitfield_1.set(12usize, 52u8, val as u64)
     }
 
     #[inline]
@@ -246,8 +225,7 @@ pub struct MEMORY_REGION_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct MEMORY_REGION_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -414,35 +392,20 @@ impl MEMORY_REGION_INFORMATION_1_1 {
         Reserved: u32,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-
         bitfield_unit.set(0usize, 1u8, Private as u64);
-
         bitfield_unit.set(1usize, 1u8, MappedDataFile as u64);
-
         bitfield_unit.set(2usize, 1u8, MappedImage as u64);
-
         bitfield_unit.set(3usize, 1u8, MappedPageFile as u64);
-
         bitfield_unit.set(4usize, 1u8, MappedPhysical as u64);
-
         bitfield_unit.set(5usize, 1u8, DirectMapped as u64);
-
         bitfield_unit.set(6usize, 1u8, SoftwareEnclave as u64);
-
         bitfield_unit.set(7usize, 1u8, PageSize64K as u64);
-
         bitfield_unit.set(8usize, 1u8, PlaceholderReservation as u64);
-
         bitfield_unit.set(9usize, 1u8, MappedAwe as u64);
-
         bitfield_unit.set(10usize, 1u8, MappedWriteWatch as u64);
-
         bitfield_unit.set(11usize, 1u8, PageSizeLarge as u64);
-
         bitfield_unit.set(12usize, 1u8, PageSizeHuge as u64);
-
         bitfield_unit.set(13usize, 19u8, Reserved as u64);
-
         bitfield_unit
     }
 }
@@ -468,7 +431,7 @@ pub struct MEMORY_WORKING_SET_EX_BLOCK_1 {
     pub union_field: u64,
 }
 
-#[repr(align(8), C)]
+#[repr(C, align(8))]
 pub struct MEMORY_WORKING_SET_EX_BLOCK_1_1 {
     _bitfield_align_1: [c_void; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -477,184 +440,132 @@ pub struct MEMORY_WORKING_SET_EX_BLOCK_1_1 {
 impl MEMORY_WORKING_SET_EX_BLOCK_1_1 {
     #[inline]
     pub fn Valid(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(0usize, 1u8)) }
+        self._bitfield_1.get(0usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Valid(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn ShareCount(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(1usize, 3u8)) }
+        self._bitfield_1.get(1usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_ShareCount(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(1usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(1usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn Win32Protection(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(4usize, 11u8)) }
+        self._bitfield_1.get(4usize, 11u8) as usize
     }
 
     #[inline]
     pub fn set_Win32Protection(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(4usize, 11u8, val as u64)
-        }
+        self._bitfield_1.set(4usize, 11u8, val as u64)
     }
 
     #[inline]
     pub fn Shared(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(15usize, 1u8)) }
+        self._bitfield_1.get(15usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Shared(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(15usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(15usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Node(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(16usize, 6u8)) }
+        self._bitfield_1.get(16usize, 6u8) as usize
     }
 
     #[inline]
     pub fn set_Node(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(16usize, 6u8, val as u64)
-        }
+        self._bitfield_1.set(16usize, 6u8, val as u64)
     }
 
     #[inline]
     pub fn Locked(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(22usize, 1u8)) }
+        self._bitfield_1.get(22usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Locked(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(22usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(22usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn LargePage(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(23usize, 1u8)) }
+        self._bitfield_1.get(23usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_LargePage(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(23usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(23usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Priority(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(24usize, 3u8)) }
+        self._bitfield_1.get(24usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_Priority(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(24usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(24usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn Reserved(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(27usize, 3u8)) }
+        self._bitfield_1.get(27usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_Reserved(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(27usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(27usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn SharedOriginal(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(30usize, 1u8)) }
+        self._bitfield_1.get(30usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_SharedOriginal(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(30usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(30usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Bad(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(31usize, 1u8)) }
+        self._bitfield_1.get(31usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Bad(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(31usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(31usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Win32GraphicsProtection(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(32usize, 4u8)) }
+        self._bitfield_1.get(32usize, 4u8) as usize
     }
 
     #[inline]
     pub fn set_Win32GraphicsProtection(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(32usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(32usize, 4u8, val as u64)
     }
 
     #[inline]
     pub fn ReservedUlong(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(36usize, 28u8)) }
+        self._bitfield_1.get(36usize, 28u8) as usize
     }
 
     #[inline]
     pub fn set_ReservedUlong(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(36usize, 28u8, val as u64)
-        }
+        self._bitfield_1.set(36usize, 28u8, val as u64)
     }
 
     // FIXME: Pass in arguments using a pointer or by reference.
@@ -760,8 +671,7 @@ impl MEMORY_WORKING_SET_EX_BLOCK_1_1 {
     }
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct MEMORY_WORKING_SET_EX_BLOCK_1_2 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -770,170 +680,122 @@ pub struct MEMORY_WORKING_SET_EX_BLOCK_1_2 {
 impl MEMORY_WORKING_SET_EX_BLOCK_1_2 {
     #[inline]
     pub fn Valid(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(0usize, 1u8)) }
+        self._bitfield_1.get(0usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Valid(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Reserved0(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(1usize, 14u8)) }
+        self._bitfield_1.get(1usize, 14u8) as usize
     }
 
     #[inline]
     pub fn set_Reserved0(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(1usize, 14u8, val as u64)
-        }
+        self._bitfield_1.set(1usize, 14u8, val as u64)
     }
 
     #[inline]
     pub fn Shared(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(15usize, 1u8)) }
+        self._bitfield_1.get(15usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Shared(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(15usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(15usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Reserved1(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(16usize, 5u8)) }
+        self._bitfield_1.get(16usize, 5u8) as usize
     }
 
     #[inline]
     pub fn set_Reserved1(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(16usize, 5u8, val as u64)
-        }
+        self._bitfield_1.set(16usize, 5u8, val as u64)
     }
 
     #[inline]
     pub fn PageTable(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(21usize, 1u8)) }
+        self._bitfield_1.get(21usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_PageTable(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(21usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(21usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Location(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(22usize, 2u8)) }
+        self._bitfield_1.get(22usize, 2u8) as usize
     }
 
     #[inline]
     pub fn set_Location(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(22usize, 2u8, val as u64)
-        }
+        self._bitfield_1.set(22usize, 2u8, val as u64)
     }
 
     #[inline]
     pub fn Priority(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(24usize, 3u8)) }
+        self._bitfield_1.get(24usize, 3u8) as usize
     }
 
     #[inline]
     pub fn set_Priority(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(24usize, 3u8, val as u64)
-        }
+        self._bitfield_1.set(24usize, 3u8, val as u64)
     }
 
     #[inline]
     pub fn ModifiedList(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(27usize, 1u8)) }
+        self._bitfield_1.get(27usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_ModifiedList(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(27usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(27usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Reserved2(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(28usize, 2u8)) }
+        self._bitfield_1.get(28usize, 2u8) as usize
     }
 
     #[inline]
     pub fn set_Reserved2(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(28usize, 2u8, val as u64)
-        }
+        self._bitfield_1.set(28usize, 2u8, val as u64)
     }
 
     #[inline]
     pub fn SharedOriginal(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(30usize, 1u8)) }
+        self._bitfield_1.get(30usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_SharedOriginal(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(30usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(30usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Bad(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(31usize, 1u8)) }
+        self._bitfield_1.get(31usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Bad(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(31usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(31usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn ReservedUlong(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(32usize, 32u8)) }
+        self._bitfield_1.get(32usize, 32u8) as usize
     }
 
     #[inline]
     pub fn set_ReservedUlong(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(32usize, 32u8, val as u64)
-        }
+        self._bitfield_1.set(32usize, 32u8, val as u64)
     }
 
     // FIXME: Pass in arguments using a pointer or by reference.
@@ -1063,8 +925,7 @@ pub struct MEMORY_IMAGE_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct MEMORY_IMAGE_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1161,8 +1022,7 @@ pub struct MEMORY_PHYSICAL_CONTIGUITY_UNIT_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct MEMORY_PHYSICAL_CONTIGUITY_UNIT_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1210,8 +1070,7 @@ pub struct MEMORY_PHYSICAL_CONTIGUITY_INFORMATION {
     pub ContiguityUnitInformation: *mut MEMORY_PHYSICAL_CONTIGUITY_UNIT_INFORMATION,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct MEMORY_FRAME_INFORMATION {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -1333,8 +1192,7 @@ impl MEMORY_FRAME_INFORMATION {
     }
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct FILEOFFSET_INFORMATION {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -1389,8 +1247,7 @@ impl FILEOFFSET_INFORMATION {
     }
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct PAGEDIR_INFORMATION {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -1445,8 +1302,7 @@ impl PAGEDIR_INFORMATION {
     }
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct UNIQUE_PROCESS_INFORMATION {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -1528,8 +1384,7 @@ pub struct MMPFN_IDENTITY_2 {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct MMPFN_IDENTITY_2_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 1]>,
@@ -1539,30 +1394,22 @@ pub struct MMPFN_IDENTITY_2_1 {
 impl MMPFN_IDENTITY_2_1 {
     #[inline]
     pub fn Image(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(0usize, 1u8)) }
+        self._bitfield_1.get(0usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Image(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 1u8, val as u64)
     }
 
     #[inline]
     pub fn Mismatch(&self) -> usize {
-        unsafe { core::mem::transmute(self._bitfield_1.get(1usize, 1u8)) }
+        self._bitfield_1.get(1usize, 1u8) as usize
     }
 
     #[inline]
     pub fn set_Mismatch(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
+        self._bitfield_1.set(1usize, 1u8, val as u64)
     }
 
     #[inline]
@@ -1786,8 +1633,7 @@ pub struct SECTION_INTERNAL_IMAGE_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SECTION_INTERNAL_IMAGE_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -2181,8 +2027,7 @@ pub struct MEMORY_PARTITION_MEMORY_EVENTS_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct MEMORY_PARTITION_MEMORY_EVENTS_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

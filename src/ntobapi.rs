@@ -222,8 +222,7 @@ pub struct OBJECT_BOUNDARY_DESCRIPTOR_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct OBJECT_BOUNDARY_DESCRIPTOR_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

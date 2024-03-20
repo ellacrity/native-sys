@@ -2939,8 +2939,7 @@ pub type IN_ADDR = in_addr;
 
 pub type PIN_ADDR = *mut in_addr;
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 #[derive(Copy, Clone)]
 pub struct in6_addr {
     pub s6_addr: [u8; 16],
@@ -4156,8 +4155,7 @@ pub struct RTL_ELEVATION_FLAGS {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct RTL_ELEVATION_FLAGS_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -4332,8 +4330,7 @@ pub struct RTL_IMAGE_MITIGATION_POLICY {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct RTL_IMAGE_MITIGATION_POLICY_1 {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -4401,8 +4398,7 @@ impl RTL_IMAGE_MITIGATION_POLICY_1 {
     }
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct RTL_IMAGE_MITIGATION_POLICY_2 {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,
@@ -5176,8 +5172,7 @@ pub struct RTL_FEATURE_CONFIGURATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct RTL_FEATURE_CONFIGURATION_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

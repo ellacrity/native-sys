@@ -260,8 +260,7 @@ pub struct PROCESS_PRIORITY_CLASS_EX_1 {
     pub union_field: u16,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct PROCESS_PRIORITY_CLASS_EX_1_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 1]>,
@@ -365,8 +364,7 @@ pub struct PROCESS_AFFINITY_UPDATE_MODE {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PROCESS_AFFINITY_UPDATE_MODE_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -428,8 +426,7 @@ pub struct PROCESS_MEMORY_ALLOCATION_MODE {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PROCESS_MEMORY_ALLOCATION_MODE_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -678,8 +675,7 @@ pub struct PROCESS_COMMIT_RELEASE_INFORMATION {
     pub RepurposedMemResetSize: usize,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PROCESS_COMMIT_RELEASE_INFORMATION_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -950,8 +946,7 @@ pub struct PROCESS_UPTIME_INFORMATION {
     pub Anonymous1: PROCESS_UPTIME_INFORMATION_1,
 }
 
-#[repr(C)]
-#[repr(align(1))]
+#[repr(C, align(1))]
 
 pub union PROCESS_UPTIME_INFORMATION_1 {
     _bitfield_align_1: [u8; 0],
@@ -1027,8 +1022,7 @@ pub struct PROCESS_SYSTEM_RESOURCE_MANAGEMENT {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PROCESS_SYSTEM_RESOURCE_MANAGEMENT_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1084,8 +1078,7 @@ pub struct PROCESS_LOGGING_INFORMATION {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PROCESS_LOGGING_INFORMATION_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1278,8 +1271,7 @@ pub struct THREAD_PROFILING_INFORMATION {
     pub PerformanceData: *mut THREAD_PERFORMANCE_DATA,
 }
 
-#[repr(C)]
-#[repr(align(16))]
+#[repr(C, align(16))]
 pub struct RTL_UMS_CONTEXT {
     pub Link: SINGLE_LIST_ENTRY,
     pub padding_0: u64,
@@ -1466,8 +1458,7 @@ pub struct THREAD_UMS_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct THREAD_UMS_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1542,8 +1533,7 @@ pub struct RTL_WORK_ON_BEHALF_TICKET_EX_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct RTL_WORK_ON_BEHALF_TICKET_EX_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -2040,8 +2030,7 @@ pub struct PS_STD_HANDLE_INFO_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PS_STD_HANDLE_INFO_1_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 1]>,
@@ -2332,8 +2321,7 @@ pub struct PS_CREATE_INFO_1_1_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct PS_CREATE_INFO_1_1_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -2476,8 +2464,7 @@ pub struct PS_CREATE_INFO_1_5_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct PS_CREATE_INFO_1_5_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -2706,8 +2693,7 @@ pub struct JOBOBJECT_FREEZE_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct JOBOBJECT_FREEZE_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

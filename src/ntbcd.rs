@@ -264,8 +264,7 @@ pub struct BCD_OBJECT_DATATYPE_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct BCD_OBJECT_DATATYPE_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -308,8 +307,7 @@ impl BCD_OBJECT_DATATYPE_1_1 {
     }
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct BCD_OBJECT_DATATYPE_1_2 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -323,11 +321,7 @@ impl BCD_OBJECT_DATATYPE_1_2 {
 
     #[inline]
     pub fn set_ApplicationType(&mut self, val: BCD_APPLICATION_OBJECT_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(0usize, 20u8, val as u64)
-        }
+        self._bitfield_1.set(0usize, 20u8, val as u64)
     }
 
     #[inline]
@@ -337,11 +331,7 @@ impl BCD_OBJECT_DATATYPE_1_2 {
 
     #[inline]
     pub fn set_ImageType(&mut self, val: BCD_APPLICATION_IMAGE_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(20usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(20usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -361,11 +351,7 @@ impl BCD_OBJECT_DATATYPE_1_2 {
 
     #[inline]
     pub fn set_ObjectType(&mut self, val: BCD_OBJECT_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(28usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(28usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -376,33 +362,15 @@ impl BCD_OBJECT_DATATYPE_1_2 {
         ObjectType: BCD_OBJECT_TYPE,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-
-        bitfield_unit.set(0usize, 20u8, {
-            let ApplicationType: u32 = unsafe { core::mem::transmute(ApplicationType) };
-
-            ApplicationType as u64
-        });
-
-        bitfield_unit.set(20usize, 4u8, {
-            let ImageType: u32 = unsafe { core::mem::transmute(ImageType) };
-
-            ImageType as u64
-        });
-
+        bitfield_unit.set(0usize, 20u8, ApplicationType as u64);
+        bitfield_unit.set(20usize, 4u8, ImageType as u64);
         bitfield_unit.set(24usize, 4u8, Reserved as u64);
-
-        bitfield_unit.set(28usize, 4u8, {
-            let ObjectType: u32 = unsafe { core::mem::transmute(ObjectType) };
-
-            ObjectType as u64
-        });
-
+        bitfield_unit.set(28usize, 4u8, ObjectType as u64);
         bitfield_unit
     }
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct BCD_OBJECT_DATATYPE_1_3 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -426,11 +394,7 @@ impl BCD_OBJECT_DATATYPE_1_3 {
 
     #[inline]
     pub fn set_Class(&mut self, val: BCD_INHERITED_CLASS_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(20usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(20usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -450,11 +414,7 @@ impl BCD_OBJECT_DATATYPE_1_3 {
 
     #[inline]
     pub fn set_ObjectType(&mut self, val: BCD_OBJECT_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(28usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(28usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -486,8 +446,7 @@ impl BCD_OBJECT_DATATYPE_1_3 {
     }
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct BCD_OBJECT_DATATYPE_1_4 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -511,11 +470,7 @@ impl BCD_OBJECT_DATATYPE_1_4 {
 
     #[inline]
     pub fn set_ObjectType(&mut self, val: BCD_OBJECT_TYPE) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(28usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(28usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -701,8 +656,7 @@ pub struct BCD_ELEMENT_DATATYPE {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct BCD_ELEMENT_DATATYPE_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -726,11 +680,7 @@ impl BCD_ELEMENT_DATATYPE_1 {
 
     #[inline]
     pub fn set_Format(&mut self, val: BCD_ELEMENT_DATATYPE_FORMAT) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(24usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(24usize, 4u8, val as u64)
     }
 
     #[inline]
@@ -740,11 +690,7 @@ impl BCD_ELEMENT_DATATYPE_1 {
 
     #[inline]
     pub fn set_Class(&mut self, val: BCD_ELEMENT_DATATYPE_CLASS) {
-        unsafe {
-            let val: u32 = core::mem::transmute(val);
-
-            self._bitfield_1.set(28usize, 4u8, val as u64)
-        }
+        self._bitfield_1.set(28usize, 4u8, val as u64)
     }
 
     #[inline]

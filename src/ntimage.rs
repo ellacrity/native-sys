@@ -25,8 +25,7 @@ pub struct IMAGE_DEBUG_POGO_SIGNATURE {
     pub Signature: u32,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct IMAGE_RELOCATION_RECORD {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -94,8 +93,7 @@ pub struct IMAGE_CHPE_RANGE_ENTRY_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct IMAGE_CHPE_RANGE_ENTRY_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -171,8 +169,7 @@ pub struct IMAGE_ARM64EC_CODE_RANGE_ENTRY_POINT {
     pub EntryPoint: u32,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct IMAGE_DVRT_ARM64X_FIXUP_RECORD {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -223,8 +220,7 @@ impl IMAGE_DVRT_ARM64X_FIXUP_RECORD {
     }
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct IMAGE_DVRT_ARM64X_DELTA_FIXUP_RECORD {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,

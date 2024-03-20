@@ -204,8 +204,7 @@ pub struct LDR_DATA_TABLE_ENTRY32_2 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct LDR_DATA_TABLE_ENTRY32_2_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -917,8 +916,7 @@ pub struct PEB32_2 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB32_2_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1034,8 +1032,7 @@ pub struct PEB32_5 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB32_5_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1110,8 +1107,7 @@ pub struct PEB32_6 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PEB32_6_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -1307,8 +1303,7 @@ pub struct TEB32_3 {
     pub union_field: u16,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct TEB32_3_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -1528,8 +1523,7 @@ pub struct WOW64_EXECUTE_OPTIONS {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct WOW64_EXECUTE_OPTIONS_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,

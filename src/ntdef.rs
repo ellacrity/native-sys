@@ -15,8 +15,7 @@ pub const WMIGUID_GENERIC_READ: u32 = 131085;
 pub const WMIGUID_GENERIC_WRITE: u32 = 131170;
 pub const WMIGUID_GENERIC_EXECUTE: u32 = 134800;
 
-#[repr(C)]
-#[repr(align(16))]
+#[repr(C, align(16))]
 pub struct QUAD_PTR {
     pub DoNotUseThisField1: usize,
     pub DoNotUseThisField2: usize,

@@ -184,8 +184,7 @@ pub struct FILE_INTERNAL_INFORMATION_1 {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct FILE_INTERNAL_INFORMATION_1_1 {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,

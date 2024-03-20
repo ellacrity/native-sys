@@ -2996,11 +2996,7 @@ impl SYSTEM_BIGPOOL_ENTRY_1 {
 
     #[inline]
     pub fn set_NonPaged(&mut self, val: usize) {
-        unsafe {
-            let val: u64 = core::mem::transmute(val);
-
-            self._bitfield_1.as_mut().set(0usize, 1u8, val as u64)
-        }
+        unsafe { self._bitfield_1.as_mut().set(0usize, 1u8, val as u64) }
     }
 
     #[inline]
@@ -3227,8 +3223,7 @@ pub struct SYSTEM_BOOT_ENVIRONMENT_INFORMATION_1 {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct SYSTEM_BOOT_ENVIRONMENT_INFORMATION_1_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -3790,8 +3785,7 @@ pub struct SM_STORE_BASIC_PARAMS_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SM_STORE_BASIC_PARAMS_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -5159,8 +5153,7 @@ pub struct QUERY_PERFORMANCE_COUNTER_FLAGS_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct QUERY_PERFORMANCE_COUNTER_FLAGS_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -5318,8 +5311,7 @@ pub struct SYSTEM_ENTROPY_TIMING_INFORMATION {
     pub InitializationContext: *mut core::ffi::c_void,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_CONSOLE_INFORMATION {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -5662,8 +5654,7 @@ pub struct SYSTEM_PROCESS_INFORMATION_EXTENSION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_PROCESS_INFORMATION_EXTENSION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -6109,8 +6100,7 @@ pub struct SYSTEM_INTERRUPT_STEERING_INFORMATION_OUTPUT {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_INTERRUPT_STEERING_INFORMATION_OUTPUT_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -6221,8 +6211,7 @@ pub struct SYSTEM_CODEINTEGRITY_UNLOCK_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_CODEINTEGRITY_UNLOCK_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -6316,8 +6305,7 @@ pub struct SYSTEM_KERNEL_VA_SHADOW_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_KERNEL_VA_SHADOW_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -6495,8 +6483,7 @@ pub struct SYSTEM_SPECULATION_CONTROL_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_SPECULATION_CONTROL_INFORMATION_1_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -6906,8 +6893,7 @@ pub struct SYSTEM_SPECULATION_CONTROL_INFORMATION_2 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_SPECULATION_CONTROL_INFORMATION_2_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -7057,8 +7043,7 @@ pub struct SYSTEM_SECURITY_MODEL_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_SECURITY_MODEL_INFORMATION_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -7145,8 +7130,7 @@ pub struct SYSTEM_FEATURE_USAGE_SUBSCRIPTION_DETAILS {
     pub ReportingTarget: RTL_FEATURE_USAGE_SUBSCRIPTION_TARGET,
 }
 
-#[repr(C)]
-#[repr(align(1))]
+#[repr(C, align(1))]
 
 pub union SECURE_SPECULATION_CONTROL_INFORMATION {
     _bitfield_align_1: [u8; 0],
@@ -7406,8 +7390,7 @@ pub struct SYSTEM_SHADOW_STACK_INFORMATION_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_SHADOW_STACK_INFORMATION_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -7521,8 +7504,7 @@ pub struct SYSTEM_BUILD_VERSION_INFORMATION_FLAGS {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSTEM_BUILD_VERSION_INFORMATION_FLAGS_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 1]>,
@@ -7657,8 +7639,7 @@ pub struct SYSTEM_POINTER_AUTH_INFORMATION_1 {
     pub union_field: u16,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct SYSTEM_POINTER_AUTH_INFORMATION_1_1 {
     _bitfield_align_1: [u16; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -7746,8 +7727,7 @@ pub struct SYSTEM_POINTER_AUTH_INFORMATION_2 {
     pub union_field: u16,
 }
 
-#[repr(C)]
-#[repr(align(2))]
+#[repr(C, align(2))]
 pub struct SYSTEM_POINTER_AUTH_INFORMATION_2_1 {
     _bitfield_align_1: [u8; 0],
     _bitfield_1: BitfieldUnit<[u8; 2]>,
@@ -7975,8 +7955,7 @@ pub struct SYSDBG_LIVEDUMP_CONTROL_FLAGS {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSDBG_LIVEDUMP_CONTROL_FLAGS_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -8077,8 +8056,7 @@ pub struct SYSDBG_LIVEDUMP_CONTROL_ADDPAGES {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct SYSDBG_LIVEDUMP_CONTROL_ADDPAGES_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -8148,8 +8126,7 @@ pub struct SYSDBG_LIVEDUMP_SELECTIVE_CONTROL_1 {
     pub union_field: u64,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct SYSDBG_LIVEDUMP_SELECTIVE_CONTROL_1_1 {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,

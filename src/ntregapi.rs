@@ -48,8 +48,7 @@ pub struct KEY_HANDLE_TAGS_INFORMATION {
     pub HandleTags: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct KEY_SET_LAYER_INFORMATION {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -115,17 +114,11 @@ impl KEY_SET_LAYER_INFORMATION {
         Reserved: u32,
     ) -> BitfieldUnit<[u8; 4]> {
         let mut bitfield_unit: BitfieldUnit<[u8; 4]> = Default::default();
-
-        bitfield_unit.set(0usize, 1u8, IsTombstone as u64);
-
-        bitfield_unit.set(1usize, 1u8, IsSupersedeLocal as u64);
-
-        bitfield_unit.set(2usize, 1u8, IsSupersedeTree as u64);
-
-        bitfield_unit.set(3usize, 1u8, ClassIsInherited as u64);
-
-        bitfield_unit.set(4usize, 28u8, Reserved as u64);
-
+        bitfield_unit.set(0, 1, IsTombstone as u64);
+        bitfield_unit.set(1, 1, IsSupersedeLocal as u64);
+        bitfield_unit.set(2, 1, IsSupersedeTree as u64);
+        bitfield_unit.set(3, 1, ClassIsInherited as u64);
+        bitfield_unit.set(4, 28, Reserved as u64);
         bitfield_unit
     }
 }
@@ -146,8 +139,7 @@ pub struct CM_EXTENDED_PARAMETER {
     pub Anonymous2: CM_EXTENDED_PARAMETER_2,
 }
 
-#[repr(C)]
-#[repr(align(8))]
+#[repr(C, align(8))]
 pub struct CM_EXTENDED_PARAMETER_1 {
     _bitfield_align_1: [u64; 0],
     _bitfield_1: BitfieldUnit<[u8; 8]>,

@@ -497,8 +497,7 @@ pub struct PF_VIRTUAL_QUERY_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PF_VIRTUAL_QUERY_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
@@ -573,8 +572,7 @@ pub struct PF_DEPRIORITIZE_OLD_PAGES_1 {
     pub union_field: u32,
 }
 
-#[repr(C)]
-#[repr(align(4))]
+#[repr(C, align(4))]
 pub struct PF_DEPRIORITIZE_OLD_PAGES_1_1 {
     _bitfield_align_1: [u32; 0],
     _bitfield_1: BitfieldUnit<[u8; 4]>,
