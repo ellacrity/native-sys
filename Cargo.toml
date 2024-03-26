@@ -1,6 +1,6 @@
 [package]
 name = "native-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "FFI Bindings to the Windows Native API compatible with no-std environments."
 license-file = "LICENSE"
@@ -16,6 +16,41 @@ crate-type = ["lib"]
 
 [features]
 default = ["ntzwapi"]
+full = [
+    "ntbcd",
+    "ntdbg",
+    "ntdef",
+    "ntexapi",
+    "ntgdi",
+    "ntimage",
+    "ntioapi",
+    "ntkeapi",
+    "ntldr",
+    "ntlpcapi",
+    "ntmisc",
+    "ntmmapi",
+    "ntnls",
+    "ntobapi",
+    "ntpebteb",
+    "ntpfapi",
+    "ntpnpapi",
+    "ntpoapi",
+    "ntpsapi",
+    "ntregapi",
+    "ntrtl",
+    "ntsam",
+    "ntseapi",
+    "ntsmss",
+    "ntsxs",
+    "nttmapi",
+    "nttp",
+    "ntwow64",
+    "ntxcapi",
+    "ntzwapi",
+    "subprocesstag",
+    "winntdef",
+    "winsta",
+]
 ntbcd = []
 ntdbg = []
 ntdef = []
